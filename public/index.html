@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Flow Automations - Scale with AI-Powered Automations</title>
+    <meta name="description" content="Growth Flow Automations builds AI agents and workflows that generate leads, book calls, and streamline operations for your business.">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%233b82f6;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%238b5cf6;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="3" fill="%233b82f6" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="2" fill="%238b5cf6" opacity="0.4"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/></circle><circle cx="300" cy="700" r="2" fill="%233b82f6" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="700" cy="800" r="3" fill="%238b5cf6" opacity="0.3"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.5s" repeatCount="indefinite"/></circle></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #a1a1aa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Solution Section */
+        .problem-solution {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(10, 10, 10, 0.8));
+        }
+
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .problem-cards, .solution-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        .problem-cards .card {
+            border-left: 3px solid #ef4444;
+        }
+
+        .solution-cards .card {
+            border-left: 3px solid #10b981;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(10, 10, 10, 0.8));
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .process-step p {
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        .process-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            color: #3b82f6;
+        }
+
+        /* Social Proof Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+
+        .client-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .client-logo {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: #a1a1aa;
+            font-weight: 600;
+        }
+
+        .client-logo:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 8px;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        /* Tech Stack Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-badge:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-badge h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-badge p {
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(10, 10, 10, 0.8));
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.popular {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .pricing-header p {
+            color: #a1a1aa;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #a1a1aa;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .calendly-placeholder {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            color: #3b82f6;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info h3 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info p {
+            color: #a1a1aa;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a1a1aa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+
+            .pricing-card.popular:hover {
+                transform: translateY(-5px);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.875rem;
+            }
+
+            .card,
+            .service-card,
+            .testimonial-card,
+            .pricing-card {
+                padding: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Growth Flow Automations</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://calendly.com/sameer-growthflow" target="_blank" class="nav-cta">Book Call</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
+                    <li><a href="#home" onclick="toggleMobileMenu()">Home</a></li>
+                    <li><a href="#services" onclick="toggleMobileMenu()">Services</a></li>
+                    <li><a href="#process" onclick="toggleMobileMenu()">Process</a></li>
+                    <li><a href="#pricing" onclick="toggleMobileMenu()">Pricing</a></li>
+                    <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+                    <li><a href="https://calendly.com/sameer-growthflow" target="_blank" class="nav-cta" onclick="toggleMobileMenu()">Book Call</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">For global founders & agencies</div>
+                <h1>Scale with <span class="gradient-text">AI-Powered Automations</span></h1>
+                <p class="hero-subtitle">Growth Flow Automations builds AI agents and workflows that generate leads, book calls, and streamline operations for your business.</p>
+                <div class="hero-ctas">
+                    <a href="https://calendly.com/sameer-growthflow" target="_blank" class="btn-primary">Book a Free Strategy Call</a>
+                    <a href="#services" class="btn-secondary">See AI Use Cases</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Solution Section -->
+    <section class="section problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stop Losing Revenue to <span class="gradient-text">Manual Processes</span></h2>
+                <p>We transform your biggest operational bottlenecks into automated growth engines</p>
+            </div>
+            <div class="problem-solution-grid">
+                <div class="problem-cards slide-in-left">
+                    <h3 style="color: #ef4444; margin-bottom: 2rem; font-size: 1.5rem;">Common Problems</h3>
+                    <div class="card">
+                        <h3>Wasting Hours on Manual Outreach</h3>
+                        <p>Your team spends countless hours on repetitive follow-ups and lead qualification instead of closing deals and growing the business.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Leads Slipping Through the Cracks</h3>
+                        <p>Without proper systems, qualified prospects get lost in the chaos, resulting in missed opportunities and revenue leakage.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Too Many Tools, No Workflow</h3>
+                        <p>Your tech stack is disconnected, creating data silos and forcing your team to manually transfer information between platforms.</p>
+                    </div>
+                </div>
+                <div class="solution-cards slide-in-right">
+                    <h3 style="color: #10b981; margin-bottom: 2rem; font-size: 1.5rem;">Our AI Solutions</h3>
+                    <div class="card">
+                        <h3>Intelligent Lead Generation & Outreach</h3>
+                        <p>AI agents that research prospects, craft personalized messages, and handle follow-ups automatically, increasing response rates by 300%.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Automated Lead Nurturing System</h3>
+                        <p>Smart workflows that track every interaction, score leads automatically, and ensure no opportunity is ever missed again.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Unified Automation Platform</h3>
+                        <p>Seamlessly connect all your tools with intelligent workflows that move data automatically and trigger actions based on customer behavior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Automation <span class="gradient-text">Use Cases</span></h2>
+                <p>Proven automation solutions that drive measurable results for growing businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">AI</div>
+                    <h3>AI Lead Gen & Outreach Bots</h3>
+                    <p>Automated prospecting, personalized outreach, and intelligent follow-up sequences that book 3x more qualified calls for your sales team.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">CAL</div>
+                    <h3>AI Appointment Booking & Calendar Automation</h3>
+                    <p>Smart scheduling that handles time zones, availability conflicts, and follow-up reminders, reducing no-shows by 60%.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">SUP</div>
+                    <h3>AI Customer Support & FAQ Agents</h3>
+                    <p>24/7 intelligent support that resolves 80% of customer queries instantly while escalating complex issues to your team.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">CRM</div>
+                    <h3>CRM & Pipeline Automation</h3>
+                    <p>Automated data entry, lead scoring, and pipeline management for HubSpot, Pipedrive, and other CRM platforms.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">WF</div>
+                    <h3>Workflow Automation for Agencies & Coaches</h3>
+                    <p>End-to-end client onboarding, project management, and delivery workflows that scale your operations without adding overhead.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">CUST</div>
+                    <h3>Custom AI Agents for Niche Businesses</h3>
+                    <p>Tailored automation solutions for specific industries, from real estate to e-commerce, designed to solve your unique challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Build Your <span class="gradient-text">AI Growth Engine</span></h2>
+                <p>A proven 4-step process that transforms your operations in 7-14 days</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Strategy Call</h3>
+                    <p>We analyze your current processes, identify automation opportunities, and map out the optimal AI workflow strategy for your specific business model.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Workflow & Agent Design</h3>
+                    <p>Our team designs custom AI agents and automation workflows, mapping all integration points with your existing tools and systems.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Build, Integrate, and Test</h3>
+                    <p>We build and deploy your AI agents, integrate with your tech stack, and thoroughly test all workflows to ensure optimal performance.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Scale & Optimize</h3>
+                    <p>We monitor performance metrics, optimize workflows based on real data, and continuously improve your automation systems for maximum ROI.</p>
+                </div>
+            </div>
+            <div class="process-note">
+                <strong>Average setup time: 7-14 days</strong> depending on complexity and integrations required
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by <span class="gradient-text">Global Businesses</span></h2>
+                <p>Join hundreds of companies that have transformed their operations with AI automation</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"Growth Flow Automations increased our lead generation by 400% and reduced our manual work by 80%. The ROI was immediate and continues to compound monthly."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>James Smith</h4>
+                            <p>CEO, Digital Marketing Agency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"The AI appointment booking system alone saved us 20 hours per week and increased our show-up rate by 60%. Game-changing for our coaching business."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Maria Johnson</h4>
+                            <p>Founder, Business Coaching Firm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"Their custom AI agents handle 90% of our customer inquiries automatically. Our team can now focus on high-value activities that actually grow the business."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RW</div>
+                        <div class="author-info">
+                            <h4>Robert Wilson</h4>
+                            <p>Operations Director, SaaS Company</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="client-logos">
+                <div class="client-logo">Real Estate</div>
+                <div class="client-logo">Coaches</div>
+                <div class="client-logo">Agencies</div>
+                <div class="client-logo">E-commerce</div>
+                <div class="client-logo">SaaS</div>
+                <div class="client-logo">Consultants</div>
+            </div>
+
+            <div class="benefits-list">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">✓</div>
+                    <span>Used by founders in multiple countries</span>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">✓</div>
+                    <span>Built on top of leading AI & automation tools</span>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">✓</div>
+                    <span>Average 300% increase in qualified leads</span>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">✓</div>
+                    <span>Typical ROI achieved within 30 days</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powered by <span class="gradient-text">Leading AI & Automation Tools</span></h2>
+                <p>We integrate with your existing tech stack and leverage the most advanced AI platforms</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-badge fade-in">
+                    <h4>OpenAI & Advanced LLMs</h4>
+                    <p>GPT-4, Claude, and other cutting-edge AI models</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Zapier / Make / n8n</h4>
+                    <p>Workflow automation and app integrations</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>HubSpot / Pipedrive</h4>
+                    <p>CRM automation and pipeline management</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Google Workspace</h4>
+                    <p>Gmail, Calendar, Sheets, and Drive integration</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Notion / Airtable</h4>
+                    <p>Database automation and content management</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Calendly / Acuity</h4>
+                    <p>Smart scheduling and appointment automation</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Slack / Discord</h4>
+                    <p>Team communication and notification systems</p>
+                </div>
+                <div class="tech-badge fade-in">
+                    <h4>Custom APIs</h4>
+                    <p>Bespoke integrations for unique requirements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your <span class="gradient-text">Automation Package</span></h2>
+                <p>Flexible solutions designed to scale with your business growth</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3>Starter Automation</h3>
+                        <p>Perfect for small businesses getting started with AI</p>
+                    </div>
+                    <div class="pricing-price">$1,500</div>
+                    <ul class="pricing-features">
+                        <li>1 core AI workflow or agent</li>
+                        <li>Up to 3 tool integrations</li>
+                        <li>Basic analytics dashboard</li>
+                        <li>2 weeks of optimization</li>
+                        <li>Email support</li>
+                        <li>Setup within 7 days</li>
+                        <li style="color: #f59e0b; font-weight: 600;">Monthly maintenance: $500</li>
+                    </ul>
+                    <a href="https://calendly.com/sameer-growthflow" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block;">Book Call</a>
+                </div>
+                
+                <div class="pricing-card popular fade-in">
+                    <div class="pricing-header">
+                        <h3>Growth System</h3>
+                        <p>Complete automation suite for scaling businesses</p>
+                    </div>
+                    <div class="pricing-price">$2,500</div>
+                    <ul class="pricing-features">
+                        <li>3-5 integrated AI workflows</li>
+                        <li>Full CRM automation setup</li>
+                        <li>Advanced analytics & reporting</li>
+                        <li>1 month of optimization</li>
+                        <li>Priority support & training</li>
+                        <li>Custom integrations included</li>
+                        <li>Setup within 10 days</li>
+                        <li style="color: #f59e0b; font-weight: 600;">Monthly maintenance: $700</li>
+                    </ul>
+                    <a href="https://calendly.com/sameer-growthflow" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block;">Book Call</a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3>Custom Build</h3>
+                        <p>Fully tailored solution for established enterprises</p>
+                    </div>
+                    <div class="pricing-price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited AI agents & workflows</li>
+                        <li>Enterprise-grade integrations</li>
+                        <li>Custom AI model training</li>
+                        <li>Dedicated success manager</li>
+                        <li>24/7 priority support</li>
+                        <li>Ongoing optimization & scaling</li>
+                        <li>White-glove implementation</li>
+                    </ul>
+                    <a href="https://calendly.com/sameer-growthflow" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block;">Book Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Build Your <span class="gradient-text">AI Growth Engine?</span></h2>
+                <p>Book a free 20-30 minute strategy call to discover how AI automation can transform your business</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business">Business Type *</label>
+                        <select id="business" name="business" required>
+                            <option value="">Select your business type</option>
+                            <option value="agency">Digital Marketing Agency</option>
+                            <option value="coaching">Coaching/Consulting</option>
+                            <option value="saas">SaaS Company</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="realestate">Real Estate</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="revenue">Monthly Revenue Range</label>
+                        <select id="revenue" name="revenue">
+                            <option value="">Select revenue range</option>
+                            <option value="0-10k">$0 - $10k</option>
+                            <option value="10k-50k">$10k - $50k</option>
+                            <option value="50k-100k">$50k - $100k</option>
+                            <option value="100k-500k">$100k - $500k</option>
+                            <option value="500k+">$500k+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="automation">What do you want to automate? *</label>
+                        <textarea id="automation" name="automation" placeholder="Describe your biggest operational challenges and what processes you'd like to automate..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Book Free Strategy Call</button>
+                </form>
+                
+                <div id="successMessage" class="success-message">
+                    <strong>Thank you!</strong> Your request has been submitted. We'll contact you within 24 hours to schedule your free strategy call.
+                </div>
+                
+                <div class="calendly-embed">
+                    <h4 style="text-align: center; margin-bottom: 2rem; color: #ffffff;">Or book directly below:</h4>
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/sameer-growthflow" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Growth Flow Automations</h3>
+                    <p>AI-powered automation solutions for global businesses</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="https://twitter.com" target="_blank">X (Twitter)</a></li>
+                    <li><a href="mailto:sameer.growthflow@gmail.com">Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Growth Flow Automations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Navbar Background on Scroll
+        function handleNavbarScroll() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        }
+
+        // Form Submission Handler
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.name || !data.email || !data.business || !data.automation) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitButton = document.querySelector('.form-submit');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            try {
+                // Submit to backend API
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success message
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                } else {
+                    showMessage(result.message || 'An error occurred. Please try again.', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showMessage('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        }
+
+        // Show message function
+        function showMessage(message, type = 'info') {
+            // Remove existing messages
+            const existingMessages = document.querySelectorAll('.temp-message');
+            existingMessages.forEach(msg => msg.remove());
+            
+            // Create message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `temp-message ${type}-message`;
+            messageDiv.textContent = message;
+            
+            // Style the message
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                color: white;
+                font-weight: 600;
+                z-index: 10000;
+                max-width: 400px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                animation: slideIn 0.3s ease-out;
+                ${type === 'error' ? 'background: linear-gradient(135deg, #ef4444, #dc2626);' : 'background: linear-gradient(135deg, #10b981, #059669);'}
+            `;
+            
+            // Add to page
+            document.body.appendChild(messageDiv);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => messageDiv.remove(), 300);
+            }, 5000);
+        }
+
+        // Pricing Card Hover Effects
+        function initPricingEffects() {
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            
+            pricingCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('popular')) {
+                        this.style.transform = 'translateY(-10px) scale(1.02)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('popular')) {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    }
+                });
+            });
+        }
+
+        // Service Card Stagger Animation
+        function initServiceAnimations() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        // Initialize all functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            handleScrollAnimations();
+            initPricingEffects();
+            initServiceAnimations();
+            
+            // Add scroll event listeners
+            window.addEventListener('scroll', function() {
+                handleScrollAnimations();
+                handleNavbarScroll();
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+            
+            // Add loading animation to buttons
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Add ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add CSS for ripple animation and messages
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add intersection observer for better performance
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
